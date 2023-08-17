@@ -1,4 +1,4 @@
-const characters = /[a-zA-Z0-9]/i;
+const characters = /[a-z0-9]/i;
 const space = /\s/;
 module.exports = function tokenizer(input) {
     const tokens = [];
