@@ -1,9 +1,11 @@
 const tokenizer = require('./tokenizer');
+const parser    = require('./parser');
 
 module.exports = function compiler(input) {
     /**
      * Step 1
      *  - Lexical analysis
+     *  - Collect syntax pieces
     */
 
     const tokens = tokenizer(input);
@@ -11,7 +13,10 @@ module.exports = function compiler(input) {
     /**
      * Step 2
      *  - Syntactic analysis
+     *  - Create AST
     */
+
+    const syntaxTree = parser(tokens);
 
     /**
      * Step 3
@@ -28,5 +33,5 @@ module.exports = function compiler(input) {
      *  - return
     */
 
-    return tokens;
+    return syntaxTree;
 }

@@ -1,9 +1,10 @@
-const characters = /[a-z0-9]/i;
+const letters = /[a-z0-9]/i;
 const space = /\s/;
+const digits = /\d/;
 module.exports = function tokenizer(input) {
     const tokens = [];
     let current = 0;
-    while ( current < input.length ) {
+    while (current < input.length) {
         let char = input[current];
         if (char === '(' || char === ')') {
             tokens.push({
@@ -13,9 +14,9 @@ module.exports = function tokenizer(input) {
             current++;
             continue;
         }
-        if (characters.test(char)) {
+        if (letters.test(char)) {
             let value = '';
-            while (characters.test(char)) {
+            while (letters.test(char)) {
                 value += char;
                 char = input[++current];
             }
@@ -25,7 +26,19 @@ module.exports = function tokenizer(input) {
             });
             continue;
         }
-        if(space.test(char)) {
+        if (digits.test) {
+            let value = '';
+            while (letters.test(char)) {
+                value += char;
+                char = input[++current];
+            }
+            tokens.push({
+                type: 'number',
+                value
+            });
+            continue;
+        }
+        if (space.test(char)) {
             current++;
             continue;
         }
