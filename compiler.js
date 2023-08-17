@@ -1,8 +1,12 @@
+const tokenizer = require('./tokenizer');
+
 module.exports = function compiler(input) {
     /**
      * Step 1
      *  - Lexical analysis
     */
+
+    const tokens = tokenizer(input);
 
     /**
      * Step 2
@@ -23,4 +27,6 @@ module.exports = function compiler(input) {
      * Step 5
      *  - return
     */
+
+    return tokens;
 }
