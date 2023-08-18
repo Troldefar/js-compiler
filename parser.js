@@ -19,7 +19,8 @@ module.exports = function parser(tokens) {
                 params: []
             };
             token = tokens[++current];
-            while (token.value !== '') {
+            // Keeo iterating until we hit the end of our CallExpression
+            while (token.value !== ')') {
                 expression.params.push(walk());
                 token = tokens[current];
             }
