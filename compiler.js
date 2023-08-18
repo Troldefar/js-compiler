@@ -1,5 +1,6 @@
 const tokenizer = require('./tokenizer');
 const parser    = require('./parser');
+const transformer = require('./transformer');
 
 module.exports = function compiler(input) {
     /**
@@ -23,6 +24,8 @@ module.exports = function compiler(input) {
      *  - Transformation
     */
 
+    const jsTree = transformer(syntaxTree);
+
     /**
      * Step 4
      *  - Code generation
@@ -33,5 +36,5 @@ module.exports = function compiler(input) {
      *  - return
     */
 
-    return syntaxTree;
+    return jsTree;
 }
