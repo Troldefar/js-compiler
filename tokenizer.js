@@ -1,5 +1,5 @@
 
-const letters = /[a-z0-9]/i;
+const letters = /[a-z]/i;
 const space = /\s/;
 const digits = /\d/;
 
@@ -25,7 +25,7 @@ module.exports = function tokenizer(input) {
             }
             tokens.push({
                 type: 'name',
-                value
+                value: value
             });
             continue;
         }
@@ -37,7 +37,7 @@ module.exports = function tokenizer(input) {
 
         if (digits.test) {
             let value = '';
-            while (letters.test(char)) {
+            while (digits.test(char)) {
                 value += char;
                 char = input[++current];
             }
@@ -49,7 +49,7 @@ module.exports = function tokenizer(input) {
         }
 
         throw new TypeError(`Unknowon character was encountered '${char}'`);
-        
+
     }
     return tokens;
 }

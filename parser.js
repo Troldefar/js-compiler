@@ -1,7 +1,7 @@
 
 module.exports = function parser(tokens) {
-
     let current = 0;
+
     function walk() {
         let token = tokens[current];
         if (token.type === 'number') {
@@ -27,7 +27,7 @@ module.exports = function parser(tokens) {
             current++;
             return expression;
         }
-        throw new TypeError(`Unknown token was encountered ${token}`);
+        throw new TypeError(`Unknown token: '${token}'`);
     }
 
     const tree = {

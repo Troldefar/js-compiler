@@ -24,8 +24,6 @@ module.exports = function compiler(input) {
      *  - Transformation
     */
 
-    //const jsTree = transformer(syntaxTree);
-
     /**
      * Step 4
      *  - Code generation
