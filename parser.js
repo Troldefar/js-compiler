@@ -4,7 +4,6 @@ module.exports = function parser(tokens) {
     let current = 0;
     function walk() {
         let token = tokens[current];
-        console.log(token);
         if (token.type === 'number') {
             current++;
             return {
