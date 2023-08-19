@@ -20,7 +20,7 @@ module.exports = function tokenizer(input) {
                 value += char;
                 char = input[++current];
             }
-            tokens.push({type: 'name',value});
+            tokens.push({type: 'name', value});
             continue;
         }
 
