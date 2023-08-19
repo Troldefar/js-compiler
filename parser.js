@@ -1,7 +1,8 @@
 
 module.exports = function parser(tokens) {
     let current = 0;
-
+    console.log("ALL tokeNS: ", tokens);
+    console.log("end of ALL tokeNS");
     function walk() {
         let token = tokens[current];
         if (token.type === 'number') {
@@ -18,6 +19,8 @@ module.exports = function parser(tokens) {
                 name: token.value,
                 params: []
             };
+
+            console.log(token);return;
             token = tokens[++current];
             // Keeo iterating until we hit the end of our CallExpression
             while (token.value !== ')') {
@@ -27,6 +30,7 @@ module.exports = function parser(tokens) {
             current++;
             return expression;
         }
+
         throw new TypeError(`Unknown token: '${token}'`);
     }
 
