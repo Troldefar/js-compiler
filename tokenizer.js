@@ -9,10 +9,7 @@ module.exports = function tokenizer(input) {
     while (current < input.length) {
         let char = input[current];
         if (char === '(' || char === ')') {
-            tokens.push({
-              type: 'paren',
-              value: char
-            });
+            tokens.push({type: 'paren', value: char});
             current++;
             continue;
         }
@@ -23,10 +20,7 @@ module.exports = function tokenizer(input) {
                 value += char;
                 char = input[++current];
             }
-            tokens.push({
-                type: 'name',
-                value: value
-            });
+            tokens.push({type: 'name',value});
             continue;
         }
 
@@ -41,10 +35,7 @@ module.exports = function tokenizer(input) {
                 value += char;
                 char = input[++current];
             }
-            tokens.push({
-                type: 'number',
-                value
-            });
+            tokens.push({type: 'number', value});
             continue;
         }
 

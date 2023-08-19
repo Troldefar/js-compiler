@@ -2,15 +2,12 @@
 module.exports = function parser(tokens) {
     let current = 0;
     console.log("ALL tokeNS: ", tokens);
-    console.log("end of ALL tokeNS");
+    console.log("end of ALL tokeNS \nStarting iteration");
     function walk() {
         let token = tokens[current];
         if (token.type === 'number') {
             current++;
-            return {
-                type: 'NumberLiteral',
-                value: token.value
-            };
+            return {type: 'NumberLiteral', value: token.value};
         }
         if (token.type === 'paren' && token.value === '(') {
             token = tokens[++current];
@@ -19,11 +16,7 @@ module.exports = function parser(tokens) {
                 name: token.value,
                 params: []
             };
-
-            console.log(token);
             token = tokens[++current];
-            console.log(token);
-            // Keeo iterating until we hit the end of our CallExpression
             while (token.value !== ')') {
                 expression.params.push(walk());
                 token = tokens[current];
