@@ -20,8 +20,9 @@ module.exports = function parser(tokens) {
                 params: []
             };
 
-            console.log(token);return;
+            console.log(token);
             token = tokens[++current];
+            console.log(token);
             // Keeo iterating until we hit the end of our CallExpression
             while (token.value !== ')') {
                 expression.params.push(walk());
