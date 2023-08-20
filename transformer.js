@@ -22,7 +22,7 @@ module.exports = function transformer(tree) {
             });
         },
         CallExpression(node, parent) {
-            const expression = {
+            let expression = {
                 type: CallExpression,
                 callee: {
                     type: 'Identifier',
