@@ -14,6 +14,7 @@ module.exports = function parser(tokens) {
             const expression = {type: 'CallExpression', name: token.value, params: []};
             token = tokens[++current];
             while (token.value !== ')') {
+                console.log("Finding arguments: ", token.value);
                 expression.params.push(walk());
                 token = tokens[current];
             }
