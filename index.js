@@ -1,8 +1,7 @@
 try {
     const compiler = require('./compiler');
-    const input = '(add 2 (sub(4 3))';
-    const output = compiler(input);
-    console.log(JSON.stringify(output, null, 2));
+    for ( let i = 0; i < 10; i++) 
+        console.log(JSON.stringify(compiler(`(add ${i} (sub(${i} 4))`), null, 2));
 } catch (e) {
     console.log("ERROR : ", e);
 }
